@@ -8,7 +8,7 @@ interface ButtonBootstrapProps {
   onClickButton: () => void;
 }
 
-function ButtonBootstrap({
+function ButtonPlainCss({
   color = "primary",
   children,
   onClickButton,
@@ -24,4 +24,4 @@ function ButtonBootstrap({
   );
 }
 
-export default ButtonBootstrap;
+export default ButtonPlainCss;
