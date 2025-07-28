@@ -1,9 +1,11 @@
 import { useState } from "react";
-import { Alert } from "./components/Alert";
-import ButtonBootstrap from "./components/Button";
-import ListGroup from "./components/ListGroup";
 
-function App() {
+import "bootstrap/dist/css/bootstrap.min.css";
+import ListGroup from "./components/BuildingComponents/ListGroup";
+import { Alert } from "./components/BuildingComponents/Alert";
+import ButtonBootstrap from "./components/BuildingComponents/Button";
+
+function AppBuildingComponents() {
   let items = ["New York", "San Francisco", "Tokyo", "London", "Paris"];
 
   const handleSelectItem = (item: string) => {
@@ -34,4 +36,4 @@ function App() {
   );
 }
 
-export default App;
+export default AppBuildingComponents;
