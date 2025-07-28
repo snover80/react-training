@@ -1,0 +1,20 @@
+/*
+Si nosotros queremos tener este mismo style pero en otra pagina, ej App.css vamos a tener un conflicto
+pues vamos a tener dos objetos con diferentes estilos. Aqui es donde entra a trabajar o funcionar los modulos
+funcionan como los modulos de javascript algo de manera local.
+
+Para usarlos, los importamos como objeto dentro nuestro archivo de la siguiente manera
+import styles from "./ListGroup.module.css"
+
+Y lo usamos
+
+styles.listGroup
+
+cuando tiene un - se usa
+
+styles["list-group"]
+*/
+.listGroup {
+    list-style: none;
+    padding: 0;
+}

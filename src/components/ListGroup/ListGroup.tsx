@@ -1,7 +1,22 @@
 import { useState } from "react";
+import "./ListGroup.css";
+import styled from "styled-components";
 
 // Con la interface vamos a definir la estructura de los props que recibe el componente
 // De esta manera podemos tener un componente reutilizable sin necesidad de hardercodear los valores
+interface ListItemProps {
+  active: boolean;
+}
+
+const List = styled.ul`
+  list-style: none;
+  padding: 0;
+`;
+
+const ListItem = styled.li<ListItemProps>`
+  padding: 5px 0;
+  background: ${(props) => (props.active ? "blue" : "none")};
+`;
 
 interface ListGroupProps {
   items: string[];
@@ -39,25 +54,21 @@ function ListGroup({ items, heading, onSelectItem }: ListGroupProps) {
       Si la condición es falsa, no se renderiza nada.
       */}
       {items.length === 0 && <p>No items found</p>}
-      <ul className="list-group">
+      <List>
         {items.map((item, index) => (
-          <li
+          <ListItem
+            active={index === selectedIndex}
             key={item}
             data-testid={item}
-            className={
-              selectedIndex == index
-                ? "list-group-item active"
-                : "list-group-item"
-            }
             onClick={() => {
               setSelectedIndex(index);
               onSelectItem(item);
             }}
           >
             {item}
-          </li>
+          </ListItem>
         ))}
-      </ul>
+      </List>
     </>
   );
 }

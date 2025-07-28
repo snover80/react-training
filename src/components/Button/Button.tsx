@@ -1,3 +1,5 @@
+import styles from "./Button.module.css";
+
 type validColors = "primary" | "secondary" | "success" | "danger";
 
 interface ButtonBootstrapProps {
@@ -14,7 +16,7 @@ function ButtonBootstrap({
   return (
     <button
       type="button"
-      className={`btn btn-${color}`}
+      className={[styles.btn, styles[`btn-${color}`]].join(" ")}
       onClick={onClickButton}
     >
       {children}
