@@ -1,0 +1,70 @@
+BEST PRACTICES DEL useState()
+
+Cuando tenemos algunos states similares, es bueno agruparlos en un objeto como por ejemplo:
+
+const [firstName, setFirstName] = useState("");
+const [lastName, setLastName] = useState("")
+
+En lugar de tener dos lineas de un objeto "Persona" podemos crear un objeto
+
+const [person, setPerson] = useState(
+firstName: "",
+lastName: "",
+)
+
+Sin embargo, hay que tener en cuneta que debemos evitar a toda costa construir objetos con hijos ya que esto puede ser muy complejo y demorado como por ejemplo
+
+const [person, setPerson] = useState(
+firstName: "",
+lastName: "",
+contact: {
+    address: {
+        street: ""
+    }
+}
+)
+
+En este caso hay que evitar esos nested child y obtar por un objeto plano.
+
+
+
+
+MANTENER LOS COMPONENTS DE REACT "PUROS"
+
+En programación llamamos a una funcion pura cuando siempre retorna el mismo resultado, si una funcion retorna un resultado diferente cada vez es una funcion impura
+
+Los componentes en react fueron creados siguiendo este patron "puro".
+
+Si enviamos siempre las mismas props -> Componente -> esperamos que retorne siempre el mismo jsx, esto evitara que react tenga que renderizar nuevamente el componente y evitar tener problemas de performance
+
+Pero que es un componente puro?
+
+Cuando tenemos variables fuera de la renderizacion del componente por ejemplo
+
+let count = 0;
+
+const message = () => {
+    count++;
+    return <div> Message {count} </div>
+}
+
+Cada vez que nosotros llamamos el componente message, count tenrá un valor distinto, por ende el componente se tendrá que renderizar cada vez que sea llamado
+
+Si por el contrario nosotros incluimos el count dentro del proceso de renderización vamos a tener siempre el mismo valor por ende no se renderizará.
+
+
+
+
+STRICT MODE
+
+Es el unico componente que no se renderiza y que solamente existe alli para detectar componentes impuros.
+
+Strict mode renderiza el componente 2 veces y muestra el valor del componente que renderizo por segunda vez, en nuestro ejemplo anterior los resultados solamente
+
+Message 2
+Message 4
+Message 6
+
+Esto porque el componente se renderizo dos veces, al ser impuro obtenemos resultados diferentes en cada renderizacion
+
+Este strict mode solo funciona para el dev mode lo cual nos permite detectar errores en nuestro codigo, una vez se prepare la app para produccion strict mode no funcionara y solo se renderizará un solo componente.
