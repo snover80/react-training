@@ -4,6 +4,9 @@ import AppBuildingComponents from "./AppBuildingComponents.tsx";
 import StylingComponents from "./StylingComponents.tsx";
 import AppManagingComponents from "./ManagingComponents.tsx";
 import AppShareComponents from "./ShareState.tsx";
+import BuildingForms from "./BuildingForms.tsx";
+import "./index.css";
+import ExpenseTracker from "./ExpenseTracker.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -34,9 +37,10 @@ createRoot(document.getElementById("root")!).render(
     </div>
     <AppManagingComponents />
     <AppShareComponents />
+    <BuildingForms />
     <p />
     <p />
     <p /> */}
-    <AppManagingComponents />
+    <ExpenseTracker />
   </StrictMode>
 );
