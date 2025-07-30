@@ -2,6 +2,7 @@ import { useForm, type FieldValues } from "react-hook-form";
 import "./ExpenseForm.css";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import categories from "../../categories";
 
 const schema = z.object({
   description: z.string().min(3, "Name must be at least 3 characters"),
@@ -12,7 +13,7 @@ const schema = z.object({
       },
     })
     .min(1, "Amount must be greater or equal to 18"),
-  category: z.string("Category is required"),
+  category: z.enum(categories, "Category is required"),
 });
 
 export type FormData = z.infer<typeof schema>;
@@ -68,9 +69,9 @@ function ExpenseForm({ onSubmitForm }: ExpenseFormProps) {
           aria-label="Default select example"
         >
           <option defaultValue={""}></option>
-          <option value="Groceries">Groceries</option>
-          <option value="Utilities">Utilities</option>
-          <option value="Entertainment">Entertainment</option>
+          {categories.map((category) => (
+            <option value={category}>{category}</option>
+          ))}
         </select>
         {errors.category && (
           <p className="text-danger mb-3">{errors.category.message}</p>

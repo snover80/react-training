@@ -5,6 +5,7 @@ interface ExpanseTableProps {
   onDeleteItem: (id: number) => void;
 }
 function ExpenseTable({ expenseList, onDeleteItem }: ExpanseTableProps) {
+  if (expenseList.length === 0) return null;
   return (
     <div>
       <table className="table table-striped">
@@ -20,7 +21,7 @@ function ExpenseTable({ expenseList, onDeleteItem }: ExpanseTableProps) {
           {expenseList.map((expense) => (
             <tr key={expense.id}>
               <td>{expense.description}</td>
-              <td>{expense.amount}</td>
+              <td>${expense.amount.toFixed(2)}</td>
               <td>{expense.category}</td>
               <td>
                 <button
@@ -34,6 +35,24 @@ function ExpenseTable({ expenseList, onDeleteItem }: ExpanseTableProps) {
             </tr>
           ))}
         </tbody>
+        <tfoot>
+          <tr>
+            <td>Total</td>
+            {/*Reduce function en arrays nos permite combinar valores entro algo mas
+             acc representa el acumulador
+             expenseList es la lista que iteramos
+             finalmente sumamos el valor que obtenemos de la lista con el acumulador
+             el segundo argumento de nuestra funcion es el valor inicial del acumulador*/}
+            <td>
+              $
+              {expenseList
+                .reduce((acc, expenseList) => expenseList.amount + acc, 0)
+                .toFixed(2)}
+            </td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tfoot>
       </table>
     </div>
   );
