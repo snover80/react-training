@@ -1,12 +1,9 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import AppBuildingComponents from "./AppBuildingComponents.tsx";
-import StylingComponents from "./StylingComponents.tsx";
-import AppManagingComponents from "./ManagingComponents.tsx";
-import AppShareComponents from "./ShareState.tsx";
-import BuildingForms from "./BuildingForms.tsx";
 import "./index.css";
-import ExpenseTracker from "./ExpenseTracker.tsx";
+
+import AppEffectHook from "./components/EffectHook/AppEffectHook.tsx";
+import FetchingApi from "./components/EffectHook/FetchingApi.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -38,9 +35,11 @@ createRoot(document.getElementById("root")!).render(
     <AppManagingComponents />
     <AppShareComponents />
     <BuildingForms />
+    <ExpenseTracker />
+    <AppEffectHook />
     <p />
     <p />
     <p /> */}
-    <ExpenseTracker />
+    <FetchingApi />
   </StrictMode>
 );

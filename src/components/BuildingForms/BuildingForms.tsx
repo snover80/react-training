@@ -1,4 +1,4 @@
-import AdvancedForms from "./components/BuildingForms/AdvancedForms";
+import AdvancedForms from "./AdvancedForms";
 
 function BuildingForms() {
   return (

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { produce } from "immer";
-import ExpandableComponent from "./components/ManagingComponents/ExpandableComponent";
+import ExpandableComponent from "./ExpandableComponent";
 
 function AppManagingComponents() {
   const [drink, setDrink] = useState({
