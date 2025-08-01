@@ -1,9 +1,9 @@
 import { useState } from "react";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import ListGroup from "./components/BuildingComponents/ListGroup";
-import { Alert } from "./components/BuildingComponents/Alert";
-import ButtonBootstrap from "./components/BuildingComponents/Button";
+import { Alert } from "./Alert";
+import ButtonBootstrap from "./Button";
+import ListGroup from "./ListGroup";
 
 function AppBuildingComponents() {
   let items = ["New York", "San Francisco", "Tokyo", "London", "Paris"];

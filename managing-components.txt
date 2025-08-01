@@ -26,6 +26,9 @@ contact: {
 
 En este caso hay que evitar esos nested child y obtar por un objeto plano.
 
+Hay que tener en cuenta que el useState() si actualiza una variable, pero al mismo tiempo hace el rendering nuevamente de la pagina, lo que quiere decir que por cada vez
+que usemos useEffect() va a haber un trigger del rendering
+
 
 
 

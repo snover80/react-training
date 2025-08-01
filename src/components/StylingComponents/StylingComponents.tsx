@@ -1,6 +1,6 @@
-import ButtonPlainCss from "./components/StylingComponents/Button/ButtonPlainCss";
-import Like from "./components/StylingComponents/Like/Like";
-import ListGroup from "./components/StylingComponents/ListGroup";
+import ButtonPlainCss from "./Button/ButtonPlainCss";
+import Like from "./Like/Like";
+import ListGroup from "./ListGroup";
 
 function StylingComponents() {
   let items = ["New York", "San Francisco", "Tokyo", "London", "Paris"];
